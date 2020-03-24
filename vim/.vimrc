@@ -1,0 +1,1 @@
+/home/ramory-l/.vimrc
