@@ -1,0 +1,28 @@
+set number relativenumber
+set surround
+set multiple cursors
+set incsearch
+set ignorecase
+set clipboard=unnamed
+
+let mapleader = " "
+let maplocalleader = " "
+
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>o :action SwitchHeaderSource<CR>
+nnoremap <c-u> <c-u>zz<CR>
+nnoremap <c-d> <c-d>zz<CR>
+nnoremap H :bprevious<CR>
+nnoremap L :bnext<CR>
+
+nnoremap ]d :action GotoNextError<CR>
+nnoremap [d :action GotoPreviousError<CR>
+nnoremap <leader>d :action ShowErrorDescription<CR>
+
+nnoremap d "_d
+vnoremap d "_d
+vnoremap p "_dP
+
