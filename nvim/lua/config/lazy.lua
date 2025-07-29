@@ -22,6 +22,10 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 vim.g.have_nerd_font = true
 
+-- Needed for Oil to start like default file explorer
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Setup lazy.nvim
 require('lazy').setup {
   spec = {

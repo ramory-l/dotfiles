@@ -1,12 +1,13 @@
 return {
   {
     'stevearc/oil.nvim',
+    lazy = false,
+    priority = 900,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     keys = {
       { '-', '<CMD>Oil<CR>', desc = 'Open parent directory' },
       { '<space>-', '<CMD>Oil --float<CR>', desc = 'Open parent directory (float)' },
     },
-    cmd = 'Oil',
     opts = {
       default_file_explorer = true,
       columns = {
