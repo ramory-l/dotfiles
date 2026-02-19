@@ -63,9 +63,8 @@ Create a file in `lua/plugins/` returning a lazy.nvim plugin spec. It will be au
 | stevearc/conform.nvim | Formatter (format-on-save) |
 | saghen/blink.cmp | Completion engine |
 | lewis6991/gitsigns.nvim | Git decorations and hunk actions |
-| kdheepak/lazygit.nvim | LazyGit TUI integration |
+| folke/snacks.nvim | Picker, LazyGit, Git Browse, smooth scroll, bigfile handling |
 | folke/which-key.nvim | Keybinding hints |
-| echasnovski/mini.nvim | Mini plugin suite |
 | tpope/vim-sleuth | Auto-detect indentation |
 
 ## Formatting
@@ -106,8 +105,16 @@ conform.nvim handles format-on-save with LSP fallback:
 - `<leader>tb` - Toggle line blame, `<leader>tw` - Toggle word diff
 - `ih` (text object) - Select hunk
 
-**LazyGit:**
+**Snacks (picker, lazygit, gitbrowse):**
+- `<leader><space>` - Smart find files
+- `<leader>sf` - Find files
+- `<leader>sg` - Grep
+- `<leader>sb` - Buffers
+- `<leader>sh` - Help pages
+- `<leader>sd` - Diagnostics
+- `<leader>sr` - Recent files
 - `<leader>lg` - Open LazyGit TUI
+- `<leader>gB` - Git browse (open in browser, normal + visual)
 
 **Oil (inside Oil buffer):**
 - `<C-v>` - Open in vertical split
