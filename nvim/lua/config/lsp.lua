@@ -37,16 +37,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
     end
 
-    -- Navigation
-    map('gd', vim.lsp.buf.definition, '[G]o to [D]efinition')
-    map('gD', vim.lsp.buf.declaration, '[G]o to [D]eclaration')
-    map('gr', vim.lsp.buf.references, '[G]o to [R]eferences')
-    map('gi', vim.lsp.buf.implementation, '[G]o to [I]mplementation')
-    map('gt', vim.lsp.buf.type_definition, '[G]o to [T]ype definition')
-
     -- Documentation
     map('K', vim.lsp.buf.hover, 'Hover documentation')
-    map('<C-k>', vim.lsp.buf.signature_help, 'Signature help')
+    map('gs', vim.lsp.buf.signature_help, 'Si[g]nature help')
 
     -- Actions
     map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
