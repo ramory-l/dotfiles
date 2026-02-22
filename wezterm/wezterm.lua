@@ -53,9 +53,6 @@ config.keys = {
 
   -- Copy mode (vim-like)
   {key="[", mods="ALT", action=wezterm.action.ActivateCopyMode},
-
-  -- Search (vim-like)
-  {key="/", mods="CTRL", action=wezterm.action.Search({CaseInSensitiveString=""})},
 }
 
 -- Copy mode keybindings (vim-like)
