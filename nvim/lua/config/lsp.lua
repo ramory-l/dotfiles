@@ -48,5 +48,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Diagnostics
     map('[d', vim.diagnostic.goto_prev, 'Previous [D]iagnostic')
     map(']d', vim.diagnostic.goto_next, 'Next [D]iagnostic')
+    map('<leader>of', vim.diagnostic.open_float, '[O]pen [F]loat')
   end,
 })

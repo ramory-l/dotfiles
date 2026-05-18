@@ -17,12 +17,15 @@ return {
         'mtime',
       },
       keymaps = {
-        ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
+        ['g?'] = { 'actions.show_help', mode = 'n' },
+        ['<CR>'] = 'actions.select',
+        ['<C-\\>'] = { 'actions.select', opts = { vertical = true } },
         ['<C-p>'] = { 'actions.preview', opts = { split = 'belowright' } },
       },
       view_options = {
         show_hidden = true,
       },
+      use_default_keymaps = false,
       watch_for_changes = true,
       win_options = {
         signcolumn = 'yes:2',

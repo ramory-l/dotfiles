@@ -1,0 +1,11 @@
+theme = "base16_transparent"
+
+[editor]
+
+line-number = "relative"
+mouse = false
+clipboard-provider = "pasteboard"
+
+[keys.insert]
+
+"C-[" = "normal_mode"
