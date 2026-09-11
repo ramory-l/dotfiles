@@ -1,0 +1,16 @@
+theme = "base16_transparent"
+
+[editor]
+
+line-number = "relative"
+mouse = false
+clipboard-provider = "pasteboard"
+soft-wrap.enable = true
+
+[keys.insert]
+
+"C-[" = "normal_mode"
+
+[keys.normal.space.m]
+
+p = ":lsp-workspace-command open-preview"

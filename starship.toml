@@ -1,0 +1,6 @@
+[time]
+disabled = false
+
+[kubernetes]
+disabled = false
+format = '[☸ $context: \($namespace\)(dimmed green)](blue) '
