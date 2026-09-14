@@ -24,6 +24,7 @@
 
 - Never add AI attribution to commits or PRs: no Co-Authored-By trailer,
   no "Generated with Claude Code" line, no session links.
+- A commit message is a single subject line: no body, no paragraphs, no bullet lists.
 
 # Coding workflow
 

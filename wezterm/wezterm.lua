@@ -39,6 +39,22 @@ config.keys = {
 		mods = "ALT",
 		action = wezterm.action.DisableDefaultAssignment,
 	},
+	{
+		key = "=",
+		mods = "CTRL",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		key = "-",
+		mods = "CTRL",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	-- Shift+Enter -> ESC+CR (= Option/Meta+Enter), which Claude Code treats as a newline.
+	{
+		key = "Enter",
+		mods = "SHIFT",
+		action = wezterm.action.SendString("\x1b\r"),
+	},
 }
 
 return config

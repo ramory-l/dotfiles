@@ -14,6 +14,8 @@ export VISUAL="$EDITOR"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
+alias k=kubectl
+
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 

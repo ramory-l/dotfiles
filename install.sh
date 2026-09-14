@@ -70,6 +70,7 @@ link git/ignore           "$CONFIG_DIR/git/ignore"
 link zellij               "$CONFIG_DIR/zellij"
 link helix                "$CONFIG_DIR/helix"
 link yazi                 "$CONFIG_DIR/yazi"
+link wezterm              "$CONFIG_DIR/wezterm"
 link starship.toml        "$CONFIG_DIR/starship.toml"
 link .zshrc               "$HOME/.zshrc"
 

@@ -15,7 +15,7 @@ tools they configure (Homebrew preferred), and is safe to re-run at any time.
 | `yazi/` | `~/.config/yazi` | Yazi file manager config |
 | `starship.toml` | `~/.config/starship.toml` | Starship prompt |
 | `.zshrc` | `~/.zshrc` | Zsh config (universal; machine-local bits go to `~/.zshrc.local`) |
-| `wezterm/` | `~/.config/wezterm` | Manual copy for now (not linked) |
+| `wezterm/` | `~/.config/wezterm` | WezTerm terminal config |
 
 Everything in the "Lives at" column is a symlink into this repo, so editing a live
 config edits the repo working tree — review with `git diff`, then commit.
