@@ -42,6 +42,16 @@
   fold conventions, gotchas, and decisions worth keeping into the project
   CLAUDE.md / .claude/rules/ / docs, updating in place. The rest dies with the
   plan.
-- Use repomix when a fixed context bundle beats file-by-file reads: a planning or
-  review pass over a code slice (--include, --compress), analyzing a remote repo
-  (--remote), or preparing a bundle for a second opinion from another model.
+
+# Context economy
+
+- Any source that can dump a lot of tokens — long logs, build/test output, large
+  documents, broad code exploration, search result dumps — is read by a subagent,
+  not in the main context; only the conclusion comes back. Heuristic: if the raw
+  output won't be needed again, it doesn't belong in the main context at all.
+- Many files or a whole repository is a repomix job, never a chain of
+  file-by-file reads: pack the slice (--include, --compress) or the remote repo
+  (--remote) and hand the bundle to a subagent to analyze. Default to this
+  whenever the task amounts to "understand/survey this module, codebase, or
+  repository", and use bundles for L-lane plan reviews and second opinions from
+  another model.
