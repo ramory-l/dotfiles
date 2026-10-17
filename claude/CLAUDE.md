@@ -38,6 +38,9 @@
 - Specs and plans are scratch, not deliverables: keep them in files while working
   (files survive compaction), but never commit them — docs/superpowers/** is
   git-ignored globally; delete leftovers when finishing a branch.
+- A spec tells the system's story, short: goal → how it works now → what we change →
+  how it works after → expected result → rollout/rollback → out of scope; code refs,
+  scripts, data snapshots and test details go to the plan.
 - Knowledge outlives features, artifacts don't: at the end of significant work,
   fold conventions, gotchas, and decisions worth keeping into the project
   CLAUDE.md / .claude/rules/ / docs, updating in place. The rest dies with the
