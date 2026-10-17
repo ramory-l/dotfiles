@@ -56,8 +56,13 @@ official installer (no brew formula).
   untracked machine state.
 - If a tool replaces one of the symlinks with a plain file, re-running `install.sh`
   backs the file up as `*.bak` and restores the link.
-- Exception: on the work laptop `~/.config/claude/settings.json` is a deliberate plain
-  file. Work tooling rewrites it (company hooks, the internal skills marketplace,
-  `forceLoginMethod`), so the repo copy stays the shared base and shared tweaks are
-  carried over by hand. Re-running `install.sh` there would restore the link — move
-  the plain file back from `settings.json.bak` afterwards.
+- Exception: on the work laptop `settings.json` cannot stay a symlink — the
+  `avito ai claude` wrapper rewrites it as a plain file on every launch, adding its own
+  keys. The `claude()` function in `~/.zshrc.local` syncs it with the repo before and
+  after each run, three-way against `settings.dotfiles-base.json`: repo changes reach
+  Claude, `/model` and `/plugin` changes land here as a git diff, and wrapper-owned keys
+  are stripped. Re-running `install.sh` there is harmless; the next launch replaces the
+  link again.
+- `install.sh` registers the Holst desktop MCP server (`http://127.0.0.1:47641/mcp`,
+  served by the Holst app while it runs) at user scope, since MCP servers live in the
+  untracked `.claude.json`. Use `127.0.0.1`, not `localhost`: Holst doesn't answer on IPv6.

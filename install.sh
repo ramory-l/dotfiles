@@ -124,5 +124,16 @@ if ! command -v pplx >/dev/null 2>&1; then
   curl -fsSL https://github.com/perplexityai/perplexity-cli/releases/latest/download/install.sh | sh
 fi
 
+# Holst desktop serves MCP on 127.0.0.1:47641 while the app runs, on any account (its
+# "connect" button only shows for organization workspaces). MCP servers live in the
+# untracked .claude.json, so register it here.
+if ! command -v claude >/dev/null 2>&1; then
+  log "!! claude not found — re-run install.sh after installing it to register holst-desktop MCP"
+elif ! CLAUDE_CONFIG_DIR="$CLAUDE_DIR" claude mcp get holst-desktop >/dev/null 2>&1; then
+  CLAUDE_CONFIG_DIR="$CLAUDE_DIR" claude mcp add --transport http --scope user \
+    holst-desktop http://127.0.0.1:47641/mcp
+  log "registered holst-desktop MCP server for Claude Code"
+fi
+
 log "done. Restart your shell (exec zsh), then start claude once so it picks up"
 log "the plugins enabled in settings.json (run /plugin if any are missing)."
