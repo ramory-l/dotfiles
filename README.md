@@ -56,3 +56,8 @@ official installer (no brew formula).
   untracked machine state.
 - If a tool replaces one of the symlinks with a plain file, re-running `install.sh`
   backs the file up as `*.bak` and restores the link.
+- Exception: on the work laptop `~/.config/claude/settings.json` is a deliberate plain
+  file. Work tooling rewrites it (company hooks, the internal skills marketplace,
+  `forceLoginMethod`), so the repo copy stays the shared base and shared tweaks are
+  carried over by hand. Re-running `install.sh` there would restore the link — move
+  the plain file back from `settings.json.bak` afterwards.
