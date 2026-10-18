@@ -1,0 +1,92 @@
+{
+  "skill_name": "openrouter-images",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Сгенерируй иконку предмета для инвентаря: ржавая ключ-карта охранника с потёртым логотипом корпорации, на прозрачном фоне — хочу сразу закинуть её в UI в Unity.",
+      "expected_output": "Picks a model with native transparency (GPT Image 2.5 Flare or similar), requests background=transparent with png, square aspect, an English prompt describing an isolated object; plans an alpha check of the result.",
+      "files": [],
+      "expectations": [
+        "The chosen model natively supports background=transparent on OpenRouter (per /api/v1/images/models)",
+        "The request sets background=transparent",
+        "The request does not ask for jpeg output (png/webp or the provider's png default)",
+        "The aspect ratio is square (1:1) or left at a square default",
+        "The image prompt is written in English and describes an isolated object with no background",
+        "The plan includes verifying that the result has real transparency (alpha check), not just looking at it",
+        "Expected cost of the request is at most $0.10"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Вот набросок моего персонажа: ~/.config/claude/skills/openrouter-images/evals/files/runner.png. Сделай 4 варианта того же персонажа (красное худи, синие штаны, белые кроссовки) в разных паркур-позах — быстро и дёшево, мне просто выбрать направление.",
+      "expected_output": "Uses the sketch as a reference image, picks a cheap edit-capable model, produces 4 variants (n=4 where supported or 4 calls), keeps total cost low (a few cents), prompt preserves outfit while changing pose.",
+      "files": [
+        "evals/files/runner.png"
+      ],
+      "expectations": [
+        "The sketch runner.png is sent as a reference image (input_references or equivalent)",
+        "The chosen model accepts reference images",
+        "Exactly 4 variants are planned (n=4 in one request or 4 requests)",
+        "Total expected cost for all 4 variants is at most $0.10",
+        "The prompt explicitly keeps the outfit (red hoodie, blue pants, white sneakers) while changing the pose",
+        "A draft/cheap tier is used: expected cost per image is at most $0.02"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Сделай логотип для моей игры NETRUN.",
+      "expected_output": "Recognizes the ambiguity (vector mark vs raster wordmark with readable text, style) and asks 1-2 concrete questions with model/price options before spending; the default it falls back to is sensible (text-capable model for a wordmark).",
+      "files": [],
+      "expectations": [
+        "Clarifying question(s) are written to outputs/questions.md instead of silently guessing",
+        "The questions offer concrete options that differ in output type or style (e.g. vector mark vs raster wordmark)",
+        "The options mention the model and/or approximate price",
+        "No more than 3 questions are asked",
+        "The default plan, if it renders the word NETRUN, uses a model that is strong at text (not a Recraft vector model)",
+        "The image prompt quotes the exact text \"NETRUN\""
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Нужна бесшовная текстура ржавого рифлёного металлического пола для уровня, 2K, чтобы тайлилась в Unity без видимых швов.",
+      "expected_output": "Square 2K output on a model that actually supports 2K (or an explicit upscale plan), tileable/top-down/flat-light prompt, and a seam check with a 2x2 tile preview plus a fix path.",
+      "expectations": [
+        "The aspect ratio is square (1:1)",
+        "The plan really delivers 2K: resolution 2K (or larger) on a model whose resolution options include it, or an explicit upscale step; the 2K requirement is not silently dropped",
+        "The image prompt asks for a seamless/tileable texture viewed top-down/orthographic with flat, even lighting",
+        "The plan checks seams by tiling the result (e.g. a 2x2 tile preview) before reporting",
+        "The plan has a concrete fix if seams show (e.g. offset by half and repair the center, then re-check)",
+        "Expected cost is at most $0.10"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Сделай пиксельный спрайт крысы 32x32 для инвентаря, на прозрачном фоне.",
+      "expected_output": "Transparent-capable model with background=transparent, pixel-art prompt, then nearest-neighbor downscale to 32x32 plus palette quantization and an alpha check; final deliverable is a true 32x32 PNG.",
+      "expectations": [
+        "The chosen model natively supports background=transparent on OpenRouter, or the plan has an explicit background-removal step",
+        "The image prompt asks for pixel art (crisp pixels, limited palette, no anti-aliasing)",
+        "The plan downscales to exactly 32x32 with nearest-neighbor resampling",
+        "The plan reduces the colors to a limited palette",
+        "The plan verifies real transparency of the result",
+        "Expected cost is at most $0.10"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Сделай 6 финальных вариантов ключевого арта для страницы в Steam: бегун на крыше над неоновым городом, ночь, дождь. Максимальное качество, 16:9.",
+      "expected_output": "Top-tier model at high quality, 16:9; computes the total for 6 finals, sees it exceeds the $0.25 confirmation limit, asks the user with the estimate (and offers drafts-first), and does not spend before approval.",
+      "expectations": [
+        "The plan computes the total expected cost for all 6 variants before generating",
+        "Because the total exceeds $0.25, the user is asked to confirm (outputs/questions.md) and the question shows the estimated cost",
+        "No paid generation is planned to run before that confirmation (no --yes or equivalent pre-approved)",
+        "A cheaper path is offered (e.g. low-quality drafts first, finals only for the picks)",
+        "The request uses a 16:9 aspect ratio",
+        "The finals use a top-tier model at high quality or above (e.g. gpt-image-2.5-sunburst/flare at high/xhigh/max)"
+      ],
+      "files": []
+    }
+  ]
+}

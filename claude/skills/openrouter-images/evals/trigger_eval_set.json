@@ -1,0 +1,114 @@
+[
+  {
+    "query": "нарисуй концепт заброшенного офиса корпорации для третьего уровня, хочу понять атмосферу — темно, мигающий свет, разбросанные бумаги",
+    "should_trigger": true
+  },
+  {
+    "query": "сделай мне иконки для инвентаря: фонарик, аптечка и монтировка, все в одном стиле, фон прозрачный, это для UI в юнити",
+    "should_trigger": true
+  },
+  {
+    "query": "у меня есть скрин моего персонажа в Assets/Art/runner_v2.png, перерисуй его в стиле комикса, чтобы показать художнику направление",
+    "should_trigger": true
+  },
+  {
+    "query": "мне нужна бесшовная текстура бетонной стены с подтёками, 2048, для крыш на уровне",
+    "should_trigger": true
+  },
+  {
+    "query": "Make a Steam capsule image for NETRUN: a hooded runner leaping between rooftops, neon rain, title text at the top",
+    "should_trigger": true
+  },
+  {
+    "query": "хочу мудборд из 6 картинок: жуткие коридоры серверной, холодный синий свет, потом закину на доску в холсте",
+    "should_trigger": true
+  },
+  {
+    "query": "сгенерь постер для стены в игре — реклама фейковой корпорации 'OmniSec — we watch so you don't have to', ретро 80-х",
+    "should_trigger": true
+  },
+  {
+    "query": "нужен пиксель-арт спрайт монетки 16х16, 4 кадра вращения, прозрачный фон",
+    "should_trigger": true
+  },
+  {
+    "query": "можешь показать как будет выглядеть монстр-охранник: высокий, худой, вместо головы камера наблюдения? просто быстрый набросок",
+    "should_trigger": true
+  },
+  {
+    "query": "отредактируй generated-images/20261018-004549-smoke-keycard.png — сделай карту красной вместо синей и добавь трещину на пластике",
+    "should_trigger": true
+  },
+  {
+    "query": "нарисуй диаграмму состояний для AI монстра: patrol → chase → search → patrol, в mermaid",
+    "should_trigger": false
+  },
+  {
+    "query": "сделай график FPS по уровням из Logs/perf.csv, хочу увидеть где просадки",
+    "should_trigger": false
+  },
+  {
+    "query": "уменьши все png в Assets/UI/Icons до 128x128 и сконвертируй в webp",
+    "should_trigger": false
+  },
+  {
+    "query": "напиши шейдер для Unity URP, который делает глитч-эффект на экране, когда монстр рядом",
+    "should_trigger": false
+  },
+  {
+    "query": "сверстай главное меню игры в UI Toolkit: кнопки Play, Settings, Quit, тёмная тема",
+    "should_trigger": false
+  },
+  {
+    "query": "почему текстура пола в юнити выглядит размытой вблизи? какие настройки импорта поставить",
+    "should_trigger": false
+  },
+  {
+    "query": "оформи на доске в Holst структуру уровня: зоны, точки спавна, маршруты паркура",
+    "should_trigger": false
+  },
+  {
+    "query": "сделай скриншот текущей сцены в unity и покажи, что не так с освещением",
+    "should_trigger": false
+  },
+  {
+    "query": "какую модель на openrouter лучше взять для генерации диалогов NPC, чтобы было дёшево?",
+    "should_trigger": false
+  },
+  {
+    "query": "нарисуй ascii-арт логотип NETRUN для README",
+    "should_trigger": false
+  },
+  {
+    "query": "можно глянуть как будет выглядеть меню паузы в стиле VHS? просто картинкой-мокапом, не кодом",
+    "should_trigger": true
+  },
+  {
+    "query": "сделай аватарку для дискорд-сервера нашей игры, что-то с капюшоном и неоном",
+    "should_trigger": true
+  },
+  {
+    "query": "replace the background of Assets/Art/key_art_v1.png with a stormy night sky, keep the runner untouched",
+    "should_trigger": true
+  },
+  {
+    "query": "хочу 3 варианта обложки для девлога на ютубе про паркур в игре, 16:9",
+    "should_trigger": true
+  },
+  {
+    "query": "напиши хороший промпт для midjourney для постера игры, я сам сгенерирую",
+    "should_trigger": false
+  },
+  {
+    "query": "сделай svg-иконку шестерёнки кодом, простой path, для кнопки настроек",
+    "should_trigger": false
+  },
+  {
+    "query": "какой арт-стиль лучше для нашей игры — low poly или PS1? давай обсудим плюсы и минусы",
+    "should_trigger": false
+  },
+  {
+    "query": "найди в проекте все текстуры больше 2048 и выведи список",
+    "should_trigger": false
+  }
+]

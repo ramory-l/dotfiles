@@ -9,6 +9,7 @@ tools they configure (Homebrew preferred), and is safe to re-run at any time.
 |---|---|---|
 | `claude/CLAUDE.md` | `~/.config/claude/CLAUDE.md` | Global Claude Code instructions |
 | `claude/settings.json` | `~/.config/claude/settings.json` | Claude Code settings, incl. enabled plugins and marketplaces |
+| `claude/skills/<name>/` | `~/.config/claude/skills/<name>` | Personal Claude Code skills, one link per skill |
 | `git/ignore` | `~/.config/git/ignore` | Global gitignore (git's default excludesFile location) |
 | `zellij/` | `~/.config/zellij` | Zellij multiplexer config |
 | `helix/` | `~/.config/helix` | Helix editor config |
@@ -51,9 +52,17 @@ official installer (no brew formula).
 - The config dir is `~/.config/claude` (XDG-style): the `CLAUDE_CONFIG_DIR` env var
   points env-var-aware tools there, and `~/.claude` remains as a symlink for
   anything that still expects the default path.
-- Only `CLAUDE.md` and `settings.json` are tracked here. The rest of
-  `~/.config/claude` (state, history, sessions, credentials, plugin caches) is
-  untracked machine state.
+- Only `CLAUDE.md`, `settings.json` and the skills in `claude/skills/` are tracked here.
+  The rest of `~/.config/claude` (state, history, sessions, credentials, plugin caches)
+  is untracked machine state.
+- Skills: `install.sh` links each directory in `claude/skills/` into
+  `~/.config/claude/skills/`. Skills installed some other way (e.g. `skill-creator`,
+  `pdf`) sit next to them untracked. To track a new skill, move its directory here and
+  re-run `install.sh`.
+  - `openrouter-images` generates images through OpenRouter and needs
+    `OPENROUTER_API_KEY` in the environment. Export it machine-locally (read from the
+    Keychain, like the other tokens), never in a tracked file. Its `evals/` hold the
+    skill-creator test prompts and trigger queries for future iterations.
 - If a tool replaces one of the symlinks with a plain file, re-running `install.sh`
   backs the file up as `*.bak` and restores the link.
 - Exception: on the work laptop `settings.json` cannot stay a symlink — the

@@ -37,3 +37,5 @@ eval "$(starship init zsh)"
 
 # Machine-local environment (work paths, secrets) — never tracked in dotfiles.
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+
+[ -f "$HOME/.secrets" ] && source "$HOME/.secrets"

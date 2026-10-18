@@ -66,6 +66,12 @@ link() {
 }
 link claude/CLAUDE.md     "$CLAUDE_DIR/CLAUDE.md"
 link claude/settings.json "$CLAUDE_DIR/settings.json"
+# Each tracked skill is linked on its own, so untracked skills in the same dir stay put.
+mkdir -p "$CLAUDE_DIR/skills"
+for skill in "$DOTFILES"/claude/skills/*/; do
+  [ -d "$skill" ] || continue
+  link "claude/skills/$(basename "$skill")" "$CLAUDE_DIR/skills/$(basename "$skill")"
+done
 link git/ignore           "$CONFIG_DIR/git/ignore"
 link zellij               "$CONFIG_DIR/zellij"
 link helix                "$CONFIG_DIR/helix"
