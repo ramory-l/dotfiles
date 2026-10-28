@@ -38,7 +38,8 @@
     "perplexity-platform@api-platform-developers": true,
     "repomix-mcp@repomix": true,
     "repomix-explorer@repomix": true,
-    "repomix-commands@repomix": true
+    "repomix-commands@repomix": true,
+    "csharp-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "api-platform-developers": {
@@ -55,10 +56,11 @@
     }
   },
   "effortLevel": "xhigh",
-  "tui": "fullscreen",
   "modelSettings": {
     "claude-opus-5-5": {
       "effortLevel": "xhigh"
     }
-  }
+  },
+  "tui": "fullscreen",
+  "switchModelsOnFlag": false
 }
