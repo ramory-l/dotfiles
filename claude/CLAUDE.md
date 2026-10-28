@@ -35,6 +35,9 @@
   - L — multi-file, multi-session, or risky: full loop, plus a plan review in a
     fresh context, an adversarial review of the final diff against the plan, and
     a check of the result against the approved design (catches scope drift).
+- One plan covers one business scenario: one behaviour a user can try on its own.
+  Work that would make a long plan splits into several plans, one per scenario.
+  Only a plan too small to stand alone may bundle several scenarios.
 - Specs and plans are scratch, not deliverables: keep them in files while working
   (files survive compaction), but never commit them — docs/superpowers/** is
   git-ignored globally; delete leftovers when finishing a branch.
