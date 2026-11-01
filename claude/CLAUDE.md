@@ -6,6 +6,14 @@
 - Exception: user-facing product copy (UI strings, bot replies, marketing) is written in
   the product audience's language.
 
+# Working with me
+
+- Ask questions through AskUserQuestion. Wording I must approve goes inside
+  the question or an option preview (up to ~10 lines); longer drafts go in
+  chat, and I answer in chat.
+- Record in docs and CLAUDE.md only what I decided; offer your own
+  safeguards as proposals.
+
 # Web search
 
 - Search the web only with the `pplx` CLI, never built-in WebSearch, unless I explicitly
@@ -14,7 +22,8 @@
   `pplx content snippets "<query>" <url>...` for page excerpts.
 - One positional query per `search web` call: extra query reformulations trigger
   RATE_LIMIT on this account tier (the pplx-cli skill suggests them — ignore that) —
-  run N topics as N sequential calls.
+  run N topics as N sequential calls. Run pplx from one agent at a time: parallel
+  agents hit RATE_LIMIT.
 - Prefer a specialized source over generic search when one fits: Context7 for library
   docs, dedicated docs MCPs.
 - On transient pplx errors (RATE_LIMIT etc.): wait as the error hints, retry once; if it
@@ -44,10 +53,9 @@
 - A spec tells the system's story, short: goal → how it works now → what we change →
   how it works after → expected result → rollout/rollback → out of scope; code refs,
   scripts, data snapshots and test details go to the plan.
-- Knowledge outlives features, artifacts don't: at the end of significant work,
-  fold conventions, gotchas, and decisions worth keeping into the project
-  CLAUDE.md / .claude/rules/ / docs, updating in place. The rest dies with the
-  plan.
+- Knowledge lives in code, tests and git. Edit CLAUDE.md files and
+  .claude/rules/ only when I ask; memory notes stay a few lines, with no
+  history or dates.
 
 # Context economy
 
