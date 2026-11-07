@@ -39,8 +39,7 @@
     "repomix-mcp@repomix": true,
     "repomix-explorer@repomix": true,
     "repomix-commands@repomix": true,
-    "csharp-lsp@claude-plugins-official": true,
-    "warp@claude-code-warp": true
+    "csharp-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "api-platform-developers": {
@@ -53,12 +52,6 @@
       "source": {
         "source": "github",
         "repo": "yamadashy/repomix"
-      }
-    },
-    "claude-code-warp": {
-      "source": {
-        "source": "github",
-        "repo": "warpdotdev/claude-code-warp"
       }
     }
   },
