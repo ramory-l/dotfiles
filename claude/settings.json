@@ -69,5 +69,6 @@
     }
   },
   "tui": "fullscreen",
-  "switchModelsOnFlag": false
+  "switchModelsOnFlag": false,
+  "idleCompaction": false
 }
