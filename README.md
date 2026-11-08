@@ -12,7 +12,7 @@ tools they configure (Homebrew preferred), and is safe to re-run at any time.
 | `claude/skills/<name>/` | `~/.config/claude/skills/<name>` | Personal Claude Code skills, one link per skill |
 | `git/ignore` | `~/.config/git/ignore` | Global gitignore (git's default excludesFile location) |
 | `zellij/` | `~/.config/zellij` | Zellij multiplexer config |
-| `helix/` | `~/.config/helix` | Helix editor config |
+| `helix/` | `~/.config/helix` | Helix editor config; `ru-keymap.py` regenerates its Russian-layout keymap mirror after a helix upgrade |
 | `yazi/` | `~/.config/yazi` | Yazi file manager config |
 | `starship.toml` | `~/.config/starship.toml` | Starship prompt |
 | `.zshrc` | `~/.zshrc` | Zsh config (universal; machine-local bits go to `~/.zshrc.local`) |
