@@ -36,7 +36,9 @@ configs are for (zellij, helix, starship, yazi, fzf, fd, repomix) and the Helix
 language tooling from `helix/languages.toml` (stylua, marksman, mpls from the
 `mhersson/formulas` tap, lua-language-server, typescript-language-server, gopls).
 oh-my-zsh and its two custom plugins are cloned automatically; `pplx` uses its
-official installer (no brew formula).
+official installer (no brew formula). `macism`, the input source switcher that
+`wezterm/wezterm.lua` runs to make `Ctrl+[` and `Alt+g` switch to ABC, is downloaded
+from its GitHub release into `~/.local/bin` with a pinned checksum.
 
 ## Zsh: universal .zshrc, machine-local .zshrc.local
 

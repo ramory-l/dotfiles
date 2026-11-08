@@ -130,6 +130,28 @@ if ! command -v pplx >/dev/null 2>&1; then
   curl -fsSL https://github.com/perplexityai/perplexity-cli/releases/latest/download/install.sh | sh
 fi
 
+# macism switches the macOS input source; wezterm/wezterm.lua runs it from ~/.local/bin.
+# Fetched straight from the release binary the laishulu/homebrew formula pins, because
+# brew refuses that formula whenever Xcode lags behind macOS.
+if [ ! -x "$HOME/.local/bin/macism" ]; then
+  MACISM_VERSION=3.1.1
+  if [ "$(uname -m)" = arm64 ]; then
+    macism_asset=macism-arm64
+    macism_sha256=5af127dd9c5857bbd63b894d31a2eb96c9ce69cf6d218f17f992ae45d42eddea
+  else
+    macism_asset=macism-x86_64
+    macism_sha256=3d4d178126b7fa62d83c1aedb67644cab7e3a1e0ee452484ceed74649c8cc28a
+  fi
+  macism_tmp="$(mktemp)"
+  curl -fsSL -o "$macism_tmp" \
+    "https://github.com/laishulu/macism/releases/download/v$MACISM_VERSION/$macism_asset"
+  echo "$macism_sha256  $macism_tmp" | shasum -a 256 -c - >/dev/null
+  mkdir -p "$HOME/.local/bin"
+  install -m 755 "$macism_tmp" "$HOME/.local/bin/macism"
+  rm -f "$macism_tmp"
+  log "installed macism $MACISM_VERSION"
+fi
+
 # Holst desktop serves MCP on 127.0.0.1:47641 while the app runs, on any account (its
 # "connect" button only shows for organization workspaces). MCP servers live in the
 # untracked .claude.json, so register it here.
