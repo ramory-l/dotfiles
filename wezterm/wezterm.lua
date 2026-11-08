@@ -76,11 +76,29 @@ local us_keys = {
 	Period = { ".", ">" },
 	Slash = { "/", "?" },
 }
+-- The same keys in a fixed order. action_callback names its events by creation order
+-- and WezTerm evaluates the config more than once, so the bindings must come out in
+-- the same order every time (pairs() doesn't guarantee one) or a combo fires another
+-- combo's callback.
+local phys_keys = {
+	"Grave",
+	"Minus",
+	"Equal",
+	"LeftBracket",
+	"RightBracket",
+	"Backslash",
+	"Semicolon",
+	"Quote",
+	"Comma",
+	"Period",
+	"Slash",
+}
 -- Ctrl combos that terminals encode as control characters. Ctrl+- and Ctrl+= are
 -- left out on purpose: they stay disabled above.
 local ctrl_keys = { LeftBracket = true, RightBracket = true, Backslash = true, Slash = true }
 for letter in ("abcdefghijklmnopqrstuvwxyz"):gmatch(".") do
 	us_keys[letter:upper()] = { letter, letter:upper() }
+	table.insert(phys_keys, letter:upper())
 	ctrl_keys[letter:upper()] = true
 end
 
@@ -135,7 +153,7 @@ local function bind_us_key(phys, mods)
 	table.insert(config.keys, { key = "phys:" .. phys, mods = mods, action = us_key_action(phys, mods) })
 end
 
-for phys in pairs(us_keys) do
+for _, phys in ipairs(phys_keys) do
 	bind_us_key(phys, "ALT")
 	bind_us_key(phys, "ALT|SHIFT")
 	if ctrl_keys[phys] then
