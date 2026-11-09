@@ -62,6 +62,7 @@
     }
   },
   "tui": "fullscreen",
+  "idleCompaction": false,
   "switchModelsOnFlag": false,
-  "idleCompaction": false
+  "theme": "auto"
 }
